@@ -1,0 +1,11 @@
+효율적 중복제거 랜덤
+
+1)임의의 자리에서 하나 뽑아서 새로운 배열에 넣는다
+2)나머지에서 또 뽑아서 새로운 배열에 넣는다.
+
+knuth shuflle ? swap 메소드?
+primitaive = (method) call by value(값) = 함수 안에서 매개변수 값을 바꿔도 바같에 영향X
+나머지객체 = call by Refercence //영향
+string Immutable : 값을 바꿀수 없다
+new를 만나면 힙으로 간다
+static?
