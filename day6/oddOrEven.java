@@ -29,7 +29,6 @@ public class oddOrEven {
         String myanswer = inputanswer.next();
         System.out.println("****** 소지금 나 : "+this.mycost+"원 상대방 : "+this.opponentcost+"원 ******");
         System.out.println("배팅하시오");
-
         int cost = inputanswer.nextInt();
         while(cost>Math.min(this.mycost, this.opponentcost)){
             System.out.println("다시 배팅하시오. 최대 : "+Math.min(this.mycost, this.opponentcost)+"원");
@@ -41,7 +40,6 @@ public class oddOrEven {
 
     //정답 유뮤에 따른 소지금 계산//
     public void match(String myanswer, int cost, String correct){
-        Scanner match = new Scanner(System.in);
 
         if(myanswer.equals(correct)){
             this.mycost+=cost;
@@ -104,7 +102,6 @@ public class oddOrEven {
         }
 
     }
-
     //메인//
     public static void main(String[] args) {
         oddOrEven oddorEven = new oddOrEven();
