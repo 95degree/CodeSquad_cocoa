@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class oddOrEven {
+public class OddOrEven {
     private final static int MYFIRSTCOST = 100;
     private final static int OPPONENTFIRSTCOST = 120;
     private final static int SIZE = 20;
@@ -104,7 +104,7 @@ public class oddOrEven {
     }
     //메인//
     public static void main(String[] args) {
-        oddOrEven oddorEven = new oddOrEven();
+        OddOrEven oddorEven = new OddOrEven();
         oddorEven.game();
         }
 }
