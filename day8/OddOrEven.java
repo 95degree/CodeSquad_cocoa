@@ -6,14 +6,14 @@ public class OddOrEven {
     private final static int SIZE = 20;
 
     int mycost = 0, opponentcost = 0, turn = 0;
-    int numstage;
-    List<String> ranking;
+    List<Id> id = new ArrayList<>();
 
     // 1~SIZE 사이의 난수 생성 //
     public int random(){
         Random number = new Random();
         return number.nextInt(SIZE)+1;
     }
+
 
     //정답//
     public String printoutOddorEven(int randomnumber){
@@ -22,6 +22,7 @@ public class OddOrEven {
         }
         return "홀";
     }
+
 
     //홀짝 과 배팅할 금액 입력 후 확인//
     public void inputAnswerAndCost(String correct){
@@ -39,6 +40,7 @@ public class OddOrEven {
         this.turn ++;
     }
 
+
     //정답 유뮤에 따른 소지금 계산//
     public void match(String myanswer, int cost, String correct){
 
@@ -51,6 +53,7 @@ public class OddOrEven {
             this.opponentcost+=cost;
         }
 
+
     //다음 라운드 진행시 상대방 소지금 계산//
     public void goNextRound(int numStage) {
         System.out.println("축하합니다. " + numStage + "라운드 통과");
@@ -60,12 +63,16 @@ public class OddOrEven {
         System.out.println("****** 소지금 나 : " + this.mycost + "원 상대방 : " + this.opponentcost + "원 ******");
     }
 
+
     //게임 오버 후 소지금과 진행턴 표시//
     public void printout(int numstage){
         System.out.println("게임 끝");
+        saveId(numstage);
         System.out.println("소지금 : "+this.mycost+"원");
         System.out.println("진행턴 : "+this.turn+"턴\n");
+
     }
+
 
     //전체 게임//
     public void game(){
@@ -101,30 +108,62 @@ public class OddOrEven {
                 numstage++;
             }
         }
-
     }
-   public String Saveid(int numstage){
-        Scanner input = new Scanner(System.in);
-        System.out.println("이름을 입력하시오 : ");
-        String id = input.next();
-        String idStageTurn = "이름 : "+id+" 라운드 : "+numstage+" 진행턴 :  "+this.turn;
-        return idStageTurn;
-   }
-   public void printoutRanking(){
-        List<String> ranking = new ArrayList<String>();
 
-        this.ranking = ranking;
 
-   }
-   public int matchRanking(String idStageTurn){
+    //list에 아이디, 턴, 라운드 저장
+    public void saveId(int numstage){
+        Scanner forid = new Scanner(System.in);
+        System.out.print("이름을 입력하시오 : ");
+        String name = forid.next();
+        id.add(new Id(name,turn,numstage));
+    }
 
-   }
+
+    //랭킹을 위한 비교//
+        public void compareRanking(){
+        Collections.sort(id,new CompareToStage());
+        Collections.sort(id, (Id o1, Id o2)->{
+            return o1.getTurn()-o2.getTurn();
+        });
+    }
+
+
+    //랭킹 출력//
+    public void printOutRanking(){
+        compareRanking();
+        System.out.println("순위   이름   라운드   턴");
+        for(int i =0 ; i<id.size(); i++){
+            System.out.println(" "+(i+1)+"    "+id.get(i).getId()+"   "+id.get(i).getStage()+"      "+id.get(i).getTurn());
+        }
+    }
+    public Boolean againStart(){
+        Scanner yesOrNo = new Scanner(System.in);
+        System.out.println("다시 하시겠습니까?: Y ,N");
+        String answer = yesOrNo.next();
+        if(answer.equals("Y")){
+            return true;
+        }
+        return false;
+    }
+
+    public void initGame() {
+        while (true) {
+            game();
+            if (!againStart()) {
+                System.out.println("게임 종료");
+                return;
+            }
+        }
+    }
+
 
     //메인//
     public static void main(String[] args) {
         OddOrEven oddorEven = new OddOrEven();
-        oddorEven.game();
-        }
+        oddorEven.initGame();
+        oddorEven.printOutRanking();
+    }
 }
 
 
