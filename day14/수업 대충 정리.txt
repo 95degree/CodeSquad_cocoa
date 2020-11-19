@@ -1,0 +1,24 @@
+표준입력장치 : 키보드
+표준 출력 장치 : 모니터
+
+두 개 다 파일이다.
+
+IO Stream = 데이터의 흐름
+read write를 하면 파일포인터가 다음 줄로 넘어감
+set pos 임의의 위치로 바꿈 
+
+open
+read
+write
+set pos
+close
+
+파일 객체와 FileInputStream객체는 다르다.
+파일로부터 InputStream을 만들어야 한다.
+
+exception 예외처리 
+
+시스템 프로그래밍은 Buffered Streams이 좋다
+FileWriter , BufferedReader 
+Scanner는 성능이 좋지 않다.
+프로토 타입
