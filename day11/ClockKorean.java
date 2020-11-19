@@ -90,17 +90,21 @@ public class ClockKorean {
             case 9:
                 KOREAN[12] = GREEN+KOREAN[12];
                 KOREAN[13] = GREEN+KOREAN[13];
+                break;
 
             case 10:
                 KOREAN[14] = GREEN+KOREAN[14];
+                break;
 
             case 11:
                 KOREAN[14] = GREEN+KOREAN[14];
                 KOREAN[15] = GREEN+KOREAN[15];
+                break;
 
             case 12:
                 KOREAN[14] = GREEN+KOREAN[14];
                 KOREAN[16] = GREEN+KOREAN[16];
+                break;
 
             default:
                 break;
