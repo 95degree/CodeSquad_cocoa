@@ -9,26 +9,32 @@ public class CalendarMain {
 
 
     public void init(){
-        CalendarMain tes = new CalendarMain();
-        tes.scan();
-        tes.getDayOfWeek();
-        tes.printCalendar();
+        start();
+        scan();
+        setCalendar();
+        printCalendar();
     }
 
+    public void start(){
+        this.year = cal.get(Calendar.YEAR);
+        this.month = cal.get(Calendar.MONTH)+1;
+        setCalendar();
+        printCalendar();
+
+    }
     public void scan() {
         Scanner input = new Scanner(System.in);
-        System.out.println("원하는 년도와 월을 입력하시오");
+        System.out.println("\n\n 원하는 년도와 월을 입력하시오");
         this.year = input.nextInt();
         this.month = input.nextInt();
         input.close();
     }
 
 
-    public int getDayOfWeek() {
+    public void setCalendar() {
         cal.set(Calendar.YEAR, this.year);
         cal.set(Calendar.MONTH, this.month - 1);
         cal.set(Calendar.DATE, 1);
-        return cal.get(Calendar.DAY_OF_WEEK);
     }
 
 
