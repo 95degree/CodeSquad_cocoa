@@ -8,6 +8,4 @@ public class WindowEventHandler extends WindowAdapter {
         e.getWindow().dispose();
         System.exit(0);
     }
-
-
 }
