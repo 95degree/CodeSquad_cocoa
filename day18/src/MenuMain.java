@@ -37,9 +37,9 @@ public class MenuMain {
         MenuItem openMenuItem = new MenuItem("open");
         MenuItem exitMenuItem = new MenuItem("exit");
 
-        menu.add(newMenuItem);
-        menu.add(openMenuItem);
-        menu.add(exitMenuItem);
+        menu.add(setFileMenuActionListener(newMenuItem));
+        menu.add(setFileMenuActionListener(openMenuItem));
+        menu.add(setFileMenuActionListener(exitMenuItem));
 
         return menu;
     }
@@ -59,6 +59,11 @@ public class MenuMain {
         menu.add(eraserMenuItem);
 
         return menu;
+    }
+
+    public MenuItem setFileMenuActionListener(MenuItem menuItem){
+        menuItem.addActionListener(new FileMenuEventHandler());
+        return menuItem;
     }
 }
 
