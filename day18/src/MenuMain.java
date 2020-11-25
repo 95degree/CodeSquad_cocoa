@@ -11,6 +11,7 @@ public class MenuMain {
     public Frame createFrame(){
         Frame frame = new Frame("그림판");
         frame.setSize(500,500);
+        frame.addWindowListener(new FileEventHandler());
         frame.setVisible(true);
 
         return frame;
