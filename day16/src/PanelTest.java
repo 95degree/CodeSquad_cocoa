@@ -5,16 +5,15 @@ public class PanelTest {
         Frame f = new Frame("test");
         f.setSize(500,500);
         f.setLayout(null);
+        Panel panel = new Panel();
+        panel.setLayout(new FlowLayout());
+
 
         Canvas canvas = new Canvas();
         canvas.setBackground(Color.blue);
-        canvas.setBounds(100,50, 10, 10);
-
-        Panel panel = new Panel();
-        panel.setLayout(new FlowLayout());
         panel.setBackground(Color.PINK);
 
-        panel.setBounds(200,50, 250,250);
+        panel.setBounds(-200,-50, 250,250);
         Button b = new Button("wow");
         b.setLocation(10,10);
         b.setSize(10,10);
@@ -24,6 +23,8 @@ public class PanelTest {
         f.add(panel);
         f.add(canvas);
         f.setVisible(true);
+        canvas.setBounds(100,50, 10, 10);
+
 
     }
 }
