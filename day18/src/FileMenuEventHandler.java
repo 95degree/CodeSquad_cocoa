@@ -10,5 +10,6 @@ public class FileMenuEventHandler implements ActionListener {
 
         if(command.equals("exit"))
             System.exit(0);
+
     }
 }

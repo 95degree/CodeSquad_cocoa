@@ -2,19 +2,30 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class DrawMenuEventHandler extends Frame implements MouseListener{
+public class DrawMenuEventHandler extends Canvas implements MouseListener{
 
     int x= 0;
     int y =0;
+
+    public DrawMenuEventHandler(){
+        Canvas canvas = new Canvas();
+        canvas.setBackground(Color.PINK);
+
+    }
 
     @Override
     public void mousePressed(MouseEvent e) {
         this.x = e.getX();
         this.y = e.getY();
+        System.out.println(x);
+        System.out.println(y);
     }
-    public void paint(Graphics g){
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        repaint();
     }
+
     @Override
     public void mouseReleased(MouseEvent e) { }
 
@@ -23,11 +34,5 @@ public class DrawMenuEventHandler extends Frame implements MouseListener{
 
     @Override
     public void mouseExited(MouseEvent e)  { }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-
-    }
 
 }
