@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class MenuMain {
 
-    MyPanel panel;
+    PanelMain panel;
 
     public void create() {
         MenuBar menubar = new MenuBar();
@@ -12,7 +12,7 @@ public class MenuMain {
 
     public Frame createFrame() {
         Frame frame = new Frame("그림판");
-        panel = new MyPanel();
+        panel = new PanelMain();
         frame.setSize(500, 500);
         frame.addWindowListener(new WindowEventHandler());
         frame.setVisible(true);
