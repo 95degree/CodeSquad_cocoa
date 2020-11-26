@@ -2,17 +2,21 @@ import java.awt.*;
 
 public class MenuMain {
 
+    MyPanel panel;
+
     public void create() {
         MenuBar menubar = new MenuBar();
         createMenubar(menubar);
         createFrame().setMenuBar(menubar);
     }
 
-    public Frame createFrame(){
+    public Frame createFrame() {
         Frame frame = new Frame("그림판");
-        frame.setSize(500,500);
+        panel = new MyPanel();
+        frame.setSize(500, 500);
         frame.addWindowListener(new WindowEventHandler());
         frame.setVisible(true);
+        frame.add(panel);
 
         return frame;
     }
@@ -32,7 +36,7 @@ public class MenuMain {
         return menubar;
     }
 
-    public Menu createFileMenuItem(Menu menu){
+    public Menu createFileMenuItem(Menu menu) {
         MenuItem newMenuItem = new MenuItem("new");
         MenuItem openMenuItem = new MenuItem("open");
         MenuItem exitMenuItem = new MenuItem("exit");
@@ -44,7 +48,7 @@ public class MenuMain {
         return menu;
     }
 
-    public Menu createDrawFileMenuItem(Menu menu){
+    public Menu createDrawFileMenuItem(Menu menu) {
         MenuItem squareMenuItem = new MenuItem("Square");
         MenuItem triangleMenuItem = new MenuItem("Triangle");
         MenuItem straightMenuItem = new MenuItem("Straight");
@@ -61,7 +65,7 @@ public class MenuMain {
         return menu;
     }
 
-    public MenuItem setFileMenuActionListener(MenuItem menuItem){
+    public MenuItem setFileMenuActionListener(MenuItem menuItem) {
         menuItem.addActionListener(new FileMenuEventHandler());
         return menuItem;
     }

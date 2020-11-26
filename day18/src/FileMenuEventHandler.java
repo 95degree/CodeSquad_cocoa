@@ -8,7 +8,7 @@ public class FileMenuEventHandler implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
 
-        if(command.equals("exit"))
+        if (command.equals("exit"))
             System.exit(0);
 
     }
