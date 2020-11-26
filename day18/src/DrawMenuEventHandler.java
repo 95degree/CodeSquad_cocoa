@@ -2,16 +2,14 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class DrawMenuEventHandler extends Canvas implements MouseListener{
+public class DrawMenuEventHandler extends Frame implements MouseListener{
 
     int x= 0;
     int y =0;
 
     public DrawMenuEventHandler(){
-        Canvas canvas = new Canvas();
-        canvas.setBackground(Color.PINK);
-
     }
+
 
     @Override
     public void mousePressed(MouseEvent e) {
