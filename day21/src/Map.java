@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class Map {
@@ -5,37 +8,25 @@ public class Map {
     private int[][] map;
 
     public Map() {
-        init();
+        List<Integer> arrayNumber = new ArrayList<>();
+        inputNum(arrayNumber);
     }
 
-    private void init() {
-        int[] number = new int[SIZE * SIZE];
-        inputNum(number);
+    private void inputNum(List<Integer> number) {
+        Random random = new Random();
+        for (int i = 0; i < SIZE * SIZE; i++) {
+            number.add(i);
+        }
+        Collections.shuffle(number);
         makeMap(number);
     }
 
-    private void inputNum(int[] number) {
-        Random random = new Random();
-        for (int i = 0; i < SIZE * SIZE; i++) {
-            number[i] = i ;
-        }
-        for (int i = number.length - 1; i > 0; i--) {
-            shuffle(number, i, random.nextInt(i));
-        }
-    }
-
-    private void shuffle(int[] arrayNumber, int i, int randomNumber) {
-        int save = arrayNumber[i];
-        arrayNumber[i] = arrayNumber[randomNumber];
-        arrayNumber[randomNumber] = save;
-    }
-
-    private void makeMap(int[] arrayNumber) {
+    private void makeMap(List<Integer> number) {
         this.map = new int[SIZE][SIZE];
 
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                this.map[i][j] = arrayNumber[i * SIZE + j];
+                this.map[i][j] = number.get(i * SIZE + j);
             }
         }
     }
