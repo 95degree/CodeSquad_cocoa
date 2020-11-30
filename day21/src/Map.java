@@ -31,10 +31,6 @@ public class Map {
         }
     }
 
-    public int[][] getMap() {
-        return this.map;
-    }
-
     public void printMap() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -42,5 +38,13 @@ public class Map {
             }
             System.out.println();
         }
+    }
+
+    public int[][] getMap() {
+        return this.map;
+    }
+
+    public int getSize() {
+        return SIZE;
     }
 }
