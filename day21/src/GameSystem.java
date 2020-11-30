@@ -6,7 +6,8 @@ public class GameSystem {
 
     public GameSystem(int[][] map, int size) {
        this.map = new int[size][size];
-
+       init();
+       printMap(size);
     }
 
     private void init(){
@@ -20,6 +21,15 @@ public class GameSystem {
         switch (direction){
             case "w":
 
+        }
+    }
+
+    public void printMap(int size) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                System.out.printf("%3d", this.map[i][j]);
+            }
+            System.out.println();
         }
     }
 
