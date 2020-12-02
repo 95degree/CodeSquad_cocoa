@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class GameSystem {
 
-    private int[][] map;
+    private final int[][] map;
     private int x, y;
 
     public GameSystem(int[][] map, int size) {
@@ -36,5 +36,13 @@ public class GameSystem {
 
     public int[][] getMap() {
         return this.map;
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
     }
 }
