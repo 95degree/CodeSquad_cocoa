@@ -4,17 +4,27 @@ public class GameSystem {
 
     private final int[][] map;
     private int x, y;
+    MoveSystem move;
 
     public GameSystem(int[][] map, int size) {
         this.map = new int[size][size];
-        init();
-        printMap(size);
+        init(size);
     }
 
-    private void init() {
+    private void init(int size) {
+        printMap(size);
         Scanner input = new Scanner(System.in);
         System.out.println("방향을 입력하세요");
         String direction = input.next();
+        this.move = new MoveSystem(direction);
+        input.close();
+    }
+
+    private void findZeroLocation(int number, int x, int y) {
+        if (number == 0) {
+            this.x = x;
+            this.y = y;
+        }
     }
 
     public void printMap(int size) {
@@ -24,13 +34,6 @@ public class GameSystem {
                 findZeroLocation(this.map[i][j], i, j);
             }
             System.out.println();
-        }
-    }
-
-    private void findZeroLocation(int number, int x, int y) {
-        if (number == 0) {
-            this.x = x;
-            this.y = y;
         }
     }
 
