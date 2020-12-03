@@ -60,8 +60,8 @@ public class GameSystem {
                 default:
                     break;
             }
-        } catch (NullPointerException e) {
-            System.out.println("막 다른길 입니다. 다시 입력하세요");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("막 다른길 입니다. 다시 입력하세요 \n");
         }
     }
 
