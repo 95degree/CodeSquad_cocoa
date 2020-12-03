@@ -5,6 +5,7 @@ import java.util.List;
 public class Map {
     private final static int SIZE = 4;
     private int[][] map;
+    private int[][] rightMap;
 
     public Map() {
         List<Integer> arrayNumber = new ArrayList<>();
@@ -12,9 +13,12 @@ public class Map {
     }
 
     private void inputNum(List<Integer> number) {
+        this.rightMap = new int[SIZE][SIZE];
         for (int i = 0; i < SIZE * SIZE; i++) {
             number.add(i);
         }
+        makeMap(number);
+        rightMap = this.map;
         Collections.shuffle(number);
         makeMap(number);
     }
@@ -39,6 +43,10 @@ public class Map {
 
     public int[][] getMap() {
         return this.map;
+    }
+
+    public int[][] getRightMap() {
+        return this.rightMap;
     }
 
     public int getSize() {
