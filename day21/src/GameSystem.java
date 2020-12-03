@@ -17,13 +17,17 @@ public class GameSystem {
     }
 
     private void init(int size) {
+
         while (true) {
+            if (Objects.deepEquals(this.map, this.rightMap))
+                break;
+
             printMap(size);
             System.out.println("방향을 입력하세요");
             String direction = input.next();
             move(direction);
-            Objects.deepEquals(this.map, this.rightMap);
         }
+        System.out.println("축하합니다.");
     }
 
     private void findZeroLocation(int number, int x, int y) {
