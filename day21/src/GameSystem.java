@@ -17,12 +17,12 @@ public class GameSystem {
     }
 
     private void init(int size) {
-        while(true) {
+        while (true) {
             printMap(size);
             System.out.println("방향을 입력하세요");
             String direction = input.next();
             move(direction);
-            Objects.deepEquals(this.map,this.rightMap);
+            Objects.deepEquals(this.map, this.rightMap);
         }
     }
 
@@ -35,30 +35,32 @@ public class GameSystem {
 
 
     private void move(String direction) {
-        int save = 0;
         try {
             switch (direction) {
-                case "w":
-                    this.map[x][y] = this.map[x - 1][y];
-                    break;
-
                 case "s":
-                    this.map[x][y] = this.map[x + 1][y];
+                    this.map[x][y] = this.map[x - 1][y];
+                    this.map[x - 1][y] = 0;
                     break;
 
-                case "a":
-                    this.map[x][y] = this.map[x][y - 1];
+                case "w":
+                    this.map[x][y] = this.map[x + 1][y];
+                    this.map[x + 1][y] = 0;
                     break;
 
                 case "d":
+                    this.map[x][y] = this.map[x][y - 1];
+                    this.map[x][y - 1] = 0;
+                    break;
+
+                case "a":
                     this.map[x][y] = this.map[x][y + 1];
+                    this.map[x][y + 1] = 0;
                     break;
 
                 default:
                     break;
             }
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("막 다른길 입니다. 다시 입력하세요");
         }
     }
